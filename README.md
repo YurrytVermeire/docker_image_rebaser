@@ -1,6 +1,6 @@
 # Docker Image Rebaser
 
-This tool enables you to transfer images from any open registry like Docker or Quay to another repository.
+This tool enables you to transfer images from any open registry like Docker or Quay to another registry.
 
 ## Usage
 
