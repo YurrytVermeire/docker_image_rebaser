@@ -1,11 +1,11 @@
-# Open Registry To Google Artifact Registry image automater
+# Docker Image Rebaser
 
-This tool enables you to transfer images from any open registry like Docker or Quay to you Google Artifact Registry.
+This tool enables you to transfer images from any open registry like Docker or Quay to another repository.
 
 ## Usage
 
 ```bash
-python(3) artifact_pusher
+python(3) docker_image_rebaser
 ```
 
 ## Contributing
