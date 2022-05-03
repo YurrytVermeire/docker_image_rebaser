@@ -9,7 +9,7 @@ from images import push_image
 from helper import parse_image_input
 
 logging.basicConfig(format='docker_image_rebaser | %(levelname)s | %(message)s ',
-                    encoding='utf-8', level=logging.INFO)
+                    level=logging.INFO)
 
 
 def main():
