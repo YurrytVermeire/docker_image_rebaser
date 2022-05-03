@@ -63,6 +63,7 @@ def retag_image(docker, image, repo):
     try:
         local_image = docker.get(f"{image[0]}:{image[1]}")
         local_image.tag(repo, tag=image[1])
+        logger.info(f"New name: {''.join([repo,':', image[1]])}")
         docker.remove(f"{image[0]}:{image[1]}")
         logger.info('Image retag succesful!')
     except Exception as ex:
