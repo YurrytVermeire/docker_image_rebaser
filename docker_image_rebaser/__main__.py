@@ -23,8 +23,15 @@ def main():
                         help='specify new image name', required=True)
     parser.add_argument('-r', '--registry',
                         help='specify destination registry', required=True)
+    parser.add_argument('-d', '--debug',
+                        help='enable debugging on logger', action='store_true')
 
     args = parser.parse_args()
+    
+    if args.debug:
+
+        logging.getLogger().setLevel(logging.DEBUG)
+        logging.info('Log level changed to DEBUG')
 
     client = initiate_docker_client(args.socket)
 
