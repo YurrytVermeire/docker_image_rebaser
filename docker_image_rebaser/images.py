@@ -48,6 +48,7 @@ def retag_image(docker, image, repo):
     time.sleep(5)
     local_image = docker.get(f"{image[0]}:{image[1]}")
     local_image.tag(repo, tag=image[1])
+    print(f"New name: {''.join([repo,':', image[1]])}")
     docker.remove(f"{image[0]}:{image[1]}")
     print("Done retagging image!")
 
