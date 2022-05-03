@@ -14,7 +14,15 @@ logging.basicConfig(format='docker_image_rebaser | %(levelname)s | %(message)s '
 
 def main():
 
-    parser = argparse.ArgumentParser(description='docker_image_rebaser')
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, description="""
+Docker Image Rebaser
+
+This tool enables you to transfer images from any open registry like Docker or Quay to another registry.
+
+If you are using Docker Desktop for Windows, make sure you enable the "Expose daemon on tcp://localhost:2375 without TLS" under the general settings tab in Docker Desktop.
+
+Make sure you are logged in to the repository you want to push the image to. Use for example docker login for Docker hub or gcloud auth configure-docker <URL> for Google Artifact Registry.
+    """)
     parser.add_argument('-s', '--socket',
                         help='specify socket to connect to', required=True)
     parser.add_argument('-i', '--image',
@@ -27,7 +35,7 @@ def main():
                         help='enable debugging on logger', action='store_true')
 
     args = parser.parse_args()
-    
+
     if args.debug:
 
         logging.getLogger().setLevel(logging.DEBUG)

@@ -9,14 +9,25 @@ If you are using Docker Desktop for Windows, make sure you enable the "Expose da
 Make sure you are logged in to the repository you want to push the image to. Use for example ```docker login``` for Docker hub or ```gcloud auth configure-docker <URL>``` for Google Artifact Registry.
 
 ```bash
-python(3) docker_image_rebaser
+python(3) docker_image_rebaser -h
+
+options:
+  -h, --help            show this help message and exit
+  -s SOCKET, --socket SOCKET
+                        specify socket to connect to
+  -i IMAGE, --image IMAGE
+                        specify image to pull
+  -n NEW_IMAGE, --new-image NEW_IMAGE
+                        specify new image name
+  -r REGISTRY, --registry REGISTRY
+                        specify destination registry
+  -d, --debug           enable debugging on logger
 ```
 
-After executing the previous command, the package will prompt for the docker socket. This is on Windows ```tcp://localhost:2375``` and on Linux by default ```unix://var/run/docker.sock```
-
-Next up, enter the full image name you want to rebase (enter the text after the ```docker pull``` command).
-Now enter the new name you want to give the image.
-And at last, enter the new repository name.
+## Example
+```bash
+python(3) docker_image_rebaser -s tcp://localhost:2375 -i ubuntu -n ubuntu2 -r europe-west1-docker.pkg.dev/blablabla/test
+```
 
 ## Contributing
 
