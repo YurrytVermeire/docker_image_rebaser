@@ -2,6 +2,11 @@
 
 This tool enables you to transfer images from any open registry like Docker or Quay to another registry.
 
+## Prerequisites
+```bash
+pip install -r requirements.txt
+```
+
 ## Usage
 
 If you are using Docker Desktop for Windows, make sure you enable the "Expose daemon on tcp://localhost:2375 without TLS" under the general settings tab in Docker Desktop.
