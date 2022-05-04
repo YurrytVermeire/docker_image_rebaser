@@ -51,7 +51,7 @@ Make sure you are logged in to the repository you want to push the image to. Use
 
     if len(image) == 2:
         pull_image(client.images, image[0], tag=image[1])
-        retag_image(client.images, image, registry)
+        retag_image(client.images, image, registry, new_image_name[1])
         push_image(client.images, new_image_name[1], registry)
     else:
         pull_image(client.images, image[0]).tag(registry)

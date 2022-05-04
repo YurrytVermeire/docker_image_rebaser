@@ -49,7 +49,7 @@ def pull_image(docker, name, tag="latest"):
         sys.exit(1)
 
 
-def retag_image(docker, image, repo):
+def retag_image(docker, image, repo, new_tag):
     """
     It takes a docker image, and retags it with a new repository name
 
@@ -62,10 +62,10 @@ def retag_image(docker, image, repo):
     time.sleep(5)
     try:
         local_image = docker.get(f"{image[0]}:{image[1]}")
-        local_image.tag(repo, tag=image[1])
+        local_image.tag(repo, tag=new_tag)
         docker.remove(f"{image[0]}:{image[1]}")
         logger.info('Image retag succesful!')
-        logger.info(f"New name: {''.join([repo,':', image[1]])}")
+        logger.info(f"New name: {''.join([repo,':', new_tag])}")
     except Exception as ex:
 
         logger.error(f'Unable to retag image: {ex}')
